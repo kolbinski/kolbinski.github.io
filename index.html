@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Foo HTML</title>
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="foo-html.lib.js" ></script>
+	<script src="script.js" ></script>
+</head>
+<body>
+	<nav id="nav-main">
+		<strong>FooHTML</strong>
+		<a href="#overview">Overview</a>
+		<a href="#examples">Examples</a>
+		<a href="#documentation">Documentation</a>
+		<a href="#licence">Licence</a>
+		<a href="#download">Download</a>
+		<a href="#contact">Contact</a>
+	</nav>
+	<div id="wrap">
+	
+		<section id="overview">
+			<big>FooHTML</big>
+			<small>Yet Another Custom Elements Library</small>
+			<h3>What is FooHTML?</h3>
+			<p>FooHTML is  dolor sit amet, consectetur adipiscing elit. Fusce ac sapien vitae velit eleifend volutpat. Aenean bibendum luctus ullamcorper. Nulla nec lectus porttitor, finibus ex a, vehicula urna. Mauris molestie, ex nec blandit rutrum, lorem est feugiat risus, vel viverra velit magna nec mi. Ut ut elementum mauris. Ut facilisis lectus id sem suscipit, at lacinia enim pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed lacus ipsum, hendrerit vitae rhoncus nec, consectetur vel dolor. Aenean condimentum enim ac tellus malesuada, quis tincidunt mauris efficitur. Donec ex odio, egestas ut ante nec, malesuada dignissim lectus.</p>
+			<h3>Browsers support:</h3>
+		</section>
+		
+		<section id="examples">
+		
+			<h2>Examples</h2>
+			
+			<h3>x-foo</h3>
+			<p>Lets start with something very simple: <code>&lt;x-foo&gt;</code> with click event changing it's style and content.</p>
+			
+			<x-foo>Click me!</x-foo>
+			
+			<x-tabs>
+				<x-tab-title>JavaScript</x-tab-title>
+				<x-tab-title>HTML</x-tab-title>
+				<x-tab-title>CSS</x-tab-title>
+				<x-tab-content>FooHTML.register('x-foo', {
+	events: {
+		click: function() {
+			this.style.backgroundColor = 'green';
+			this.innerHTML = 'You clicked me!';
+		}
+	}
+});</x-tab-content>
+				<x-tab-content><x-foo>Click me!</x-foo></x-tab-content>
+				<x-tab-content>.x-foo {
+	background-color: #fff;
+	color: #000;
+	border: 3px solid #000;
+	padding: 10px 30px;
+	display: inline-block;
+	cursor: pointer;
+}</x-tab-content>
+			</x-tabs>
+			
+			<h3>Custom checkbox</h3>
+			<p>Now, lets demonstrate some basic logic built-in to custom element by imitating checkbox functionality. Actually, by differences in CSS only, we will have 3 types of checkboxes:</p>
+			
+			<x-checkbox class="checkbox-simple" data-checked="true"></x-checkbox> apples
+			<x-checkbox id="oranges" class="checkbox-simple"></x-checkbox> oranges
+			<x-checkbox id="lemons" class="checkbox-simple" data-disabled="true"></x-checkbox> lemons
+			<x-checkbox class="checkbox-simple" data-checked="true" data-disabled="true"></x-checkbox> kiwi
+			<br />
+			<x-checkbox class="checkbox-square" data-checked="true"></x-checkbox> elephants
+			<x-checkbox class="checkbox-square"></x-checkbox> lions
+			<x-checkbox id="zebras" class="checkbox-square" data-disabled="true"></x-checkbox> zebras
+			<x-checkbox class="checkbox-square" data-checked="true" data-disabled="true"></x-checkbox> antelopes
+			<br />
+			<x-checkbox class="checkbox-switch" data-checked="true"></x-checkbox> lorem
+			<x-checkbox class="checkbox-switch"></x-checkbox> ipsum
+			<x-checkbox class="checkbox-switch" data-disabled="true"></x-checkbox> dolor
+			<x-checkbox class="checkbox-switch" data-checked="true" data-disabled="true"></x-checkbox> sit
+			
+			<p>We can manipulate this "checkboxes" from vanilla JS, using it's custom element "API":</p>
+			
+			<button onclick="document.getElementById('oranges').check();">Check oranges</button>
+			<button onclick="document.getElementById('oranges').uncheck();">Uncheck oranges</button>
+			<button onclick="document.getElementById('oranges').toggle();">Toggle oranges value</button>
+			<button onclick="alert(document.getElementById('oranges').checked);">Alert oranges value</button>
+			<br />
+			<button onclick="document.getElementById('lemons').enable();">Enable lemons</button>
+			<button onclick="document.getElementById('lemons').disable();">Disable lemons</button>
+			<button onclick="document.getElementById('lemons').toggleAbility();">Toggle lemons ability</button>
+			<button onclick="alert(document.getElementById('lemons').disabled);">Alert lemons disability</button>
+			<br />
+			<button onclick="resetCheckboxes();">Reset all</button>
+			
+			<x-tabs>
+				<x-tab-title>JavaScript</x-tab-title>
+				<x-tab-title>HTML</x-tab-title>
+				<x-tab-title>CSS</x-tab-title>
+				<x-tab-content>FooHTML.register('x-checkbox', {
+	onCreate: function(){
+		this.checked = this.getAttribute('data-checked') || false;
+		this.disabled = this.getAttribute('data-disabled') || false;
+		this.defaults = {
+			checked: this.checked,
+			disabled: this.disabled
+		}
+	},
+	events: {
+		click: function(){
+			if(this.disabled) return;
+			this.setValue(!this.checked);
+		}
+	},
+	methods: {
+		check: function(){
+			this.setValue(true);
+		},
+		uncheck: function(){
+			this.setValue(false);
+		},
+		toggle: function(){
+			this.setValue(!this.checked);
+		},
+		setValue: function(value){
+			this.checked = value;
+			this.setAttribute('data-checked', this.checked);
+		},
+		enable: function(){
+			this.setAbility(true);
+		},
+		disable: function(){
+			this.setAbility(false);
+		},
+		toggleAbility: function(){
+			this.setAbility(this.disabled);
+		},
+		setAbility: function(enabled){
+			this.disabled = !enabled;
+			this.setAttribute('data-disabled', this.disabled);
+		},
+		reset: function(){
+			this.setValue(this.defaults.checked);
+			this.setAbility(!this.defaults.disabled);
+		}
+	}
+});
+
+function resetCheckboxes(){
+	var checkboxes = document.getElementsByTagName('x-checkbox'),
+		i = checkboxes.length;
+	while(i--){
+		checkboxes[i].reset();
+	}
+}</x-tab-content>
+				<x-tab-content><x-checkbox class="checkbox-simple" data-checked="true"></x-checkbox> apples
+<x-checkbox id="oranges" class="checkbox-simple"></x-checkbox> oranges
+<x-checkbox id="lemons" class="checkbox-simple" data-disabled="true"></x-checkbox> lemons
+<x-checkbox class="checkbox-simple" data-checked="true" data-disabled="true"></x-checkbox> kiwi
+
+<x-checkbox class="checkbox-square" data-checked="true"></x-checkbox> elephants
+<x-checkbox class="checkbox-square"></x-checkbox> lions
+<x-checkbox id="zebras" class="checkbox-square" data-disabled="true"></x-checkbox> zebras
+<x-checkbox class="checkbox-square" data-checked="true" data-disabled="true"></x-checkbox> antelopes
+
+<x-checkbox class="checkbox-switch" data-checked="true"></x-checkbox> lorem
+<x-checkbox class="checkbox-switch"></x-checkbox> ipsum
+<x-checkbox class="checkbox-switch" data-disabled="true"></x-checkbox> dolor
+<x-checkbox class="checkbox-switch" data-checked="true" data-disabled="true"></x-checkbox> sit
+
+<button onclick="document.getElementById('oranges').check();">Check oranges</button>
+<button onclick="document.getElementById('oranges').uncheck();">Uncheck oranges</button>
+<button onclick="document.getElementById('oranges').toggle();">Toggle oranges value</button>
+<button onclick="alert(document.getElementById('oranges').checked);">Alert oranges value</button>
+<button onclick="document.getElementById('lemons').enable();">Enable lemons</button>
+<button onclick="document.getElementById('lemons').disable();">Disable lemons</button>
+<button onclick="document.getElementById('lemons').toggleAbility();">Toggle lemons ability</button>
+<button onclick="alert(document.getElementById('lemons').disabled);">Alert lemons disability</button>
+<button onclick="resetCheckboxes();">Reset all</button></x-tab-content>
+				<x-tab-content>.x-checkbox {
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+	position: relative;
+	margin: 10px 10px 10px 30px;
+}
+.x-checkbox[data-disabled=true] {
+	cursor: default;
+}
+.checkbox-simple {
+	width: 25px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #ddd;
+	background: -webkit-linear-gradient(#eee, #bbb);
+	background: -o-linear-gradient(#eee, #bbb);
+	background: -moz-linear-gradient(#eee, #bbb);
+	background: linear-gradient(#eee, #bbb);
+}
+.checkbox-simple:hover {
+	border: 1px solid #0094FF;
+}
+.checkbox-simple[data-checked=true]::before {
+	content: 'L';
+	font-family: arial;
+	font-weight: bold;
+	font-size: 25px;
+	color: #000;
+	position: absolute;
+	top: -5px;
+	left: 5px;
+	-moz-transform: scaleX(-1) rotate(-45deg);
+	-webkit-transform: scaleX(-1) rotate(-45deg);
+	-o-transform: scaleX(-1) rotate(-45deg);
+	transform: scaleX(-1) rotate(-45deg);
+}
+.checkbox-simple[data-checked=true][data-disabled=true]::before {
+	color: #555;
+}
+.checkbox-simple[data-disabled=true] {
+	border: 1px solid #666;
+	background-color: #888;
+	background: -webkit-linear-gradient(#888, #bbb);
+	background: -o-linear-gradient(#eee, #bbb);
+	background: -moz-linear-gradient(#eee, #bbb);
+	background: linear-gradient(#888, #666);
+}
+.checkbox-square {
+	width: 30px;
+	height: 30px;
+	background-color: #ddd;
+	background: -webkit-linear-gradient(#eee, #bbb);
+	background: -o-linear-gradient(#eee, #bbb);
+	background: -moz-linear-gradient(#eee, #bbb);
+	background: linear-gradient(#eee, #bbb);
+}
+.checkbox-square::before {
+	display: block;
+	content: '';
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background-color: #333;
+	background: -webkit-linear-gradient(#222, #444);
+	background: -o-linear-gradient(#222, #444);
+	background: -moz-linear-gradient(#222, #444);
+	background: linear-gradient(#222, #444);
+}
+.checkbox-square::after {
+	display: block;
+	content: '';
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	background-color: #00FF21;
+	background: -webkit-linear-gradient(#B6FF00, #007821);
+	background: -o-linear-gradient(#B6FF00, #007821);
+	background: -moz-linear-gradient(#B6FF00, #007821);
+	background: linear-gradient(#B6FF00, #007821);
+	opacity: 0;
+}
+.checkbox-square:hover::after {
+	opacity: 0.4;
+}
+.checkbox-square[data-disabled=true]:hover::after {
+	opacity: 0;
+}
+.checkbox-square[data-checked=true]::after {
+	opacity: 1;
+}
+.checkbox-square[data-disabled=true] {
+	background-color: #666;
+	background: -webkit-linear-gradient(#444, #666);
+	background: -o-linear-gradient(#444, #666);
+	background: -moz-linear-gradient(#444, #666);
+	background: linear-gradient(#444, #666);
+}
+.checkbox-square[data-disabled=true][data-checked=true]::after {
+	opacity: 0.4;
+}
+.checkbox-switch {
+	width: 70px;
+	height: 30px;
+	background-color: gray;
+	background: -webkit-linear-gradient(135deg, #333, #222);
+	background: -o-linear-gradient(135deg, #333, #222);
+	background: -moz-linear-gradient(135deg, #333, #222);
+	background: linear-gradient(135deg, #333, #222);
+	border-radius: 15px;
+	box-shadow: inset 1px 1px 1px rgba(0,0,0,.9);
+}
+.checkbox-switch::before {
+	display: block;
+	content: '';
+	width: 44px;
+	height: 3px;
+	background-color: rgba(0,0,0,.9);
+	position: absolute;
+	top: 14px;
+	left: 13px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 0 rgba(255,255,255,.3);
+}
+.checkbox-switch::after {
+	display: block;
+	content: '';
+	width: 22px;
+	height: 22px;
+	border: 2px solid #eee;
+	border-radius: 11px;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 0 rgba(0,0,0,.8);
+	background-color: #B60000;
+	background: -webkit-linear-gradient(135deg, #B60000, #690000);
+	background: -o-linear-gradient(135deg, #B60000, #690000);
+	background: -moz-linear-gradient(135deg, #B60000, #690000);
+	background: linear-gradient(135deg, #B60000, #690000);
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	transition: all 250ms ease-in-out;
+}
+.checkbox-switch[data-checked=true]::after {
+	left: 43px;
+	background-color: #00FF21;
+	background: -webkit-linear-gradient(135deg, #B6FF00, #007821);
+	background: -o-linear-gradient(135deg, #B6FF00, #007821);
+	background: -moz-linear-gradient(135deg, #B6FF00, #007821);
+	background: linear-gradient(135deg, #B6FF00, #007821);
+}
+.checkbox-switch[data-disabled=true]::after {
+	border: 2px solid #444;
+	background-color: #3a0000;
+	background: linear-gradient(135deg, #3a0000, #230000);
+}
+.checkbox-switch[data-disabled=true][data-checked=true]::after {
+	background-color: #003321;
+	background: linear-gradient(135deg, #003321, #001C21);
+}</x-tab-content>
+			</x-tabs>
+			
+			<h3>Custom combobox</h3>
+			<p>In this example we will create custom combobox, showing also the use of external event (click outside combobox closes it, when opened).</p>
+			<x-combobox>
+				<x-option>Please select country</x-option>
+				<x-option value="be">Belgium</x-option>
+				<x-option value="de">Germany</x-option>
+				<x-option value="fr">France</x-option>
+				<x-option value="es">Spain</x-option>
+				<x-option value="us">United States of America</x-option>
+			</x-combobox>
+			
+			<x-combobox class="long-answers">
+				<x-option>Please select your favourite<br />"Lorem ipsum" sentence</x-option>
+				<x-option value="be">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</x-option>
+				<x-option value="de">Praesent luctus porttitor velit, non dapibus sapien eleifend eu.</x-option>
+				<x-option value="fr">Donec consectetur enim at enim laoreet, quis iaculis nulla molestie.</x-option>
+				<x-option value="es">Ut dignissim mi eros, id vehicula turpis hendrerit vel.</x-option>
+				<x-option value="us">Integer vehicula purus a neque elementum pulvinar.</x-option>
+			</x-combobox>
+			
+			<h3>Lazy loading</h3>
+			<p>Lets create custom element with lazy loading build-in. Lazy loading will be triggered with parametrized threashold, depending on element's scrollTop and window's scroll-y position.</p>
+			
+			<x-lazyloading>
+				Lazy loads, when top edge is displayed (default behavior).
+			</x-lazyloading>
+			<x-lazyloading data-lazy-threshold="80">
+				Lazy loads, when top edge + 80px is displayed
+			</x-lazyloading>
+			<x-lazyloading data-lazy-threshold="50%">
+				Lazy loads, when 50% of the element's height is displayed.
+			</x-lazyloading>
+			<x-lazyloading data-lazy-threshold="100%">
+				Lazy loads, when 100% of the element's height is displayed.
+			</x-lazyloading>
+			<x-lazyloading data-lazy-threshold="W50%">
+				Lazy loads, when top edge meets 50% of the screen height.
+			</x-lazyloading>
+			<x-lazyloading data-lazy-threshold="0.5">
+				Lazy loads, when element is at the middle of the screen height.
+			</x-lazyloading>
+			
+			<h3>Inheritance</h3>
+			<p>Now, we will create image custom tag with lazy laoding by inheritance from previous example.</p>
+			
+			<x-image data-lazy-threshold="100%" data-src="i/gallery-1.jpg"></x-image>
+			<x-image data-lazy-threshold="100%" data-src="i/gallery-2.jpg"></x-image>
+			<x-image data-lazy-threshold="100%" data-src="i/gallery-3.jpg"></x-image>
+			<x-image data-lazy-threshold="100%" data-src="i/gallery-4.jpg"></x-image>
+			<x-image data-lazy-threshold="100%" data-src="i/gallery-5.jpg"></x-image>
+			<x-image data-lazy-threshold="100%" data-src="i/gallery-6.jpg"></x-image>
+			
+			<h3>Video Player</h3>
+			<p>Lets demonstrate more advanced example of inheritance, by creating custom video players (based on HTML5 video tag).</p>
+			<p>We start with player having basic functionality (title of the movie, play/pause and progress bar) but in addition, when a player is started, other already started player pauses.</p>
+			
+			<x-player data-config="[{'title': 'Lorem ipsum', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
+			<x-player data-config="[{'title': 'Dolor sit', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
+			<x-player data-config="[{'title': 'Amet consectetur', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
+			<x-player data-config="[{'title': 'Adipiscing elit', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
+			
+			<p>Now, lets extend this player and add some more advanced functionality:</p>
+			<ul>
+				<li>covers for movies</li>
+				<li>tab on the right allowing to switch between movies</li>
+				<li>subtitles displayed during the "Lorem ipsum" movie</li>
+				<li>adverts displayed during playing the "Dolor sit" movie</li>
+				<li>tiles of all related movies displayed after current movie is finished</li>
+			</ul>
+			
+			<x-player-advanced data-config="[
+				{
+					'title': 'Lorem ipsum', 
+					'cover': 'i/cover-1.jpg',
+					'videos': {
+						'video/mp4': 'i/mov_bbb.mp4',
+						'video/ogg': 'i/mov_bbb.ogg'
+					},
+					'subtitles': {
+						'1': 'Donec lectus orci, varius nec rhoncus ac, <br />commodo id leo.',
+						'3': 'Donec varius, dui id porta sollicitudin, risus ex <br />sodales risus, quis semper velit ante sed orci.',
+						'5.5': 'Cras elementum sagittis velit <br />in blandit. Nulla facilisi.',
+						'7.5': 'Morbi odio risus, posuere quis <br />sapien ut, mattis pretium tellus.'
+					}
+				}, 
+				{
+					'title': 'Dolor sit', 
+					'cover': 'i/cover-2.jpg',
+					'videos': {
+						'video/mp4': 'i/mov_bbb.mp4',
+						'video/ogg': 'i/mov_bbb.ogg'
+					},
+					'subtitles': {
+						'2': 'i/banner-1.jpg',
+						'4': '',
+						'6': 'i/banner-2.jpg'
+					}
+				}, 
+				{
+					'title': 'Amet consectetur', 
+					'cover': 'i/cover-3.jpg',
+					'videos': {
+						'video/mp4': 'i/mov_bbb.mp4',
+						'video/ogg': 'i/mov_bbb.ogg'
+					}
+				}, 
+				{
+					'title': 'Adipiscing elit', 
+					'cover': 'i/cover-4.jpg', 
+					'videos': {
+						'video/mp4': 'i/mov_bbb.mp4',
+						'video/ogg': 'i/mov_bbb.ogg'
+					}
+				}, 
+				{
+					'title': 'Sed ut dictum', 
+					'cover': 'i/cover-5.jpg',
+					'videos': {
+						'video/mp4': 'i/mov_bbb.mp4',
+						'video/ogg': 'i/mov_bbb.ogg'
+					}
+				}
+			]"></x-player-advanced>
+			
+			<p>There is of cource space for improvements and adding new functionalities, like volume control, showing progress time and video duration, closable adverts, etc.</p>
+			
+			<h3>Hexagonal images</h3>
+			<p>Custom elements don't have to be used as components serving a business logic - they can also be used for creating interesting layout, like converting normal image into hexagonal shape.</p>
+			
+			<img class="hex-img" src="i/hex-img.jpg" />
+			<x-hex-img class="hex-img" data-src="i/hex-img.jpg"></x-hex-img>
+			
+			<p>And we can use it to create hexagonal mosaics.</p>
+			
+			<x-hex-mosaic id="mosaic-1" data-config="{
+				'size': [3, 3],
+				'margin': 4,
+				'tiles': ['i/mosaic-1.jpg', 'i/mosaic-2.jpg', 'i/mosaic-3.jpg', 'i/mosaic-4.jpg', 'i/mosaic-5.jpg', 'i/mosaic-6.jpg', 'i/mosaic-7.jpg', 'i/mosaic-8.jpg', 'i/mosaic-9.jpg', 'i/mosaic-10.jpg', 'i/mosaic-11.jpg', 'i/mosaic-12.jpg', 'i/mosaic-13.jpg', 'i/mosaic-14.jpg', 'i/mosaic-15.jpg', 'i/mosaic-16.jpg', 'i/mosaic-17.jpg', 'i/mosaic-18.jpg']
+			}"></x-hex-mosaic>
+			
+			<x-hex-mosaic id="mosaic-2" data-config="{
+				'size': [4, 2],
+				'margin': 10,
+				'tiles': ['i/mosaic-1.jpg', 'i/mosaic-2.jpg', 'i/mosaic-3.jpg', 'i/mosaic-4.jpg', 'i/mosaic-5.jpg', 'i/mosaic-6.jpg', 'i/mosaic-7.jpg', 'i/mosaic-8.jpg', 'i/mosaic-9.jpg', 'i/mosaic-10.jpg', 'i/mosaic-11.jpg', 'i/mosaic-12.jpg', 'i/mosaic-13.jpg', 'i/mosaic-14.jpg', 'i/mosaic-15.jpg', 'i/mosaic-16.jpg', 'i/mosaic-17.jpg', 'i/mosaic-18.jpg']
+			}"></x-hex-mosaic>
+			
+			<h3>Slider</h3>
+			
+			<x-slider data-config="[{'title': 'Lorem ipsum dolor sit amet', 'img': 'i/slider-1.jpg'}, {'title': '', 'img': 'i/slider-2.jpg'}, {'title': '', 'img': 'i/slider-3.jpg'}, {'title': '', 'img': 'i/slider-4.jpg'}, {'title': '', 'img': 'i/slider-5.jpg'}]"></x-slider>
+			
+			<h3>Image processing</h3>
+			
+			<x-img-posterized data-config="['i/processing-1.jpg', 'i/processing-3.jpg', 'i/processing-4.jpg', 'i/processing-2.jpg', 'i/processing-5.jpg', 'i/processing-6.jpg']"></x-img-posterized>
+			
+		</section>
+		<section id="documentation">
+			<h2>Documentation</h2>
+		</section>
+		<section id="licence">
+			<h2>Licence</h2>
+		</section>
+		<section id="download">
+			<h2>Download</h2>
+		</section>
+		<section id="contact">
+			<h2>Contact</h2>
+		</section>
+	</div>
+</body>
+</html>
