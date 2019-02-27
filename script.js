@@ -657,6 +657,7 @@ FooHTML
 				while(i--){
 					top = i === 0 ? (e.clientY - Math.round(this.getBoundingClientRect().top)) : Math.floor(Math.random()*this.height),
 					left = i === 0 ? (e.clientX - Math.round(this.getBoundingClientRect().left)) : (step === -1 ? Math.floor(Math.random()*this.width/3+2*this.width/3) : Math.floor(Math.random()*this.width/3));
+					console.log({top, left});
 					circle = document.createElement('div');
 					circle.className = 'circle';
 					this.api.setStyles(circle, [['position', 'absolute'], ['width', '0px'], ['height', '0px'], ['border-radius', '50%'], ['background-color', '#001626'], ['top', top+'px'], ['left', left+'px'], ['transform', 'translateX(-50%) translateY(-50%)'], ['transition', 'all '+time+'ms linear'], ['z-index', this.z]]);
