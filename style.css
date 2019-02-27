@@ -718,7 +718,7 @@ h3{
 .x-slider {
 	display: block;
 	width: 100%;
-	height: 400px;
+	height: auto;
 	background-color: gray;
 }
 .x-slider .prev, .x-slider .next {
