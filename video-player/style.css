@@ -1,0 +1,70 @@
+.video-player {
+	width: 350px;
+	height: 195px;
+	display: inline-block;
+	background-color: #333;
+	margin: 0 20px 20px 0;
+	position: relative;
+}
+.video-player video {
+	width: 100%;
+	height: 100%;
+}
+.video-player .title {
+	position: absolute;
+	width: 100%;
+	top: 10px;
+	left: 10px;
+	z-index: 2;
+	color: #fff;
+	text-shadow: 1px 1px 1px #00b8ff, -1px 1px 1px #00b8ff, 1px -1px 1px #00b8ff, -1px -1px 1px #00b8ff;
+}
+.video-player .play {
+	width: 100px;
+	height: 100px;
+	border: 5px solid #00b8ff;
+	background-color: #00b8ff44;
+	border-radius: 50%;
+	position: absolute;
+	left: 125px;
+	bottom: 45px;
+	cursor: pointer;
+	transition: all 250ms ease-in-out;
+	z-index: 2;
+}
+.video-player[data-playing=true] .play {
+	width: 20px;
+	height: 20px;
+	left: 10px;
+	bottom: 20px;
+	border-radius: 0;
+}
+.video-player .progressBar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 10px;
+	background-color: #aaa;
+	cursor: pointer;
+	z-index: 2;
+}
+.video-player .progressCurrBar {
+	display: block;
+	content: '';
+	width: 0%;
+	height: 10px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #00b8ff;
+	cursor: pointer;
+	z-index: 2;
+}
+.video-player[data-playing=true] div {
+	opacity: 0;
+	transition: all 250ms ease-in-out;
+}
+.video-player[data-playing=true]:hover div {
+	opacity: 1;
+}

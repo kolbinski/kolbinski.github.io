@@ -4,422 +4,185 @@
 	<meta charset="UTF-8">
 	<title>Foo HTML</title>
 	<link href="style.css" type="text/css" rel="stylesheet">
-	<link href="simple-button/style.css" type="text/css" rel="stylesheet">
 	<link href="snippet-explorer/style.css" type="text/css" rel="stylesheet">
+	<link href="simple-button/style.css" type="text/css" rel="stylesheet">
+	<link href="toggler-switch/style.css" type="text/css" rel="stylesheet">
+	<link href="animated-select/style.css" type="text/css" rel="stylesheet">
+	<link href="lazy-image/style.css" type="text/css" rel="stylesheet">
+	<link href="lazy-loading/style.css" type="text/css" rel="stylesheet">
+	<link href="video-player/style.css" type="text/css" rel="stylesheet">
+	<link href="video-widget/style.css" type="text/css" rel="stylesheet">
+	<link href="hexagonal-image/style.css" type="text/css" rel="stylesheet">
+	<link href="hexagonal-gallery/style.css" type="text/css" rel="stylesheet">
+	<link href="wave-slider/style.css" type="text/css" rel="stylesheet">
 	<script src="foo-html.lib.js"></script>
 	<script src="script.js"></script>
 	<script src="snippet-explorer/index.js"></script>
 	<script src="simple-button/index.js"></script>
+	<script src="toggler-switch/index.js"></script>
+	<script src="animated-select/index.js"></script>
+	<script src="lazy-loading/index.js"></script>
+	<script src="lazy-image/index.js"></script>
+	<script src="video-player/index.js"></script>
+	<script src="video-widget/index.js"></script>
+	<script src="hexagonal-image/index.js"></script>
+	<script src="hexagonal-gallery/index.js"></script>
+	<script src="wave-slider/index.js"></script>
 </head>
 <body>
-	<nav id="nav-main">
-		<strong>FooHTML</strong>
-		<a href="#overview">Overview</a>
-		<a href="#examples">Examples</a>
-		<a href="#documentation">Documentation</a>
-		<a href="#licence">Licence</a>
-		<a href="#download">Download</a>
-		<a href="#contact">Contact</a>
-	</nav>
 	<div id="wrap">
-	
-		<section id="overview">
+		<header>
 			<big>FooHTML</big>
 			<small>Yet Another Custom Elements Library</small>
-			<h3>
+		</header>
+		<section>
+			<h2>
 				What is FooHTML?
-			</h3>
+			</h2>
 			<p>
 				FooHTML is a helper library dedicated for Custom Elements,
 				it allows you to implement and use any new html tags with specific tailor made functionality.
 				Your source code becomes shorter, more easier and semantically clear.
+				<br />
+				<br />
 				Consider examples:
-				&lt;random-image theme="food" /&gt;
-				&lt;random-text min-words="3" max-words="15" /&gt;
+				<br />
+				<br />
+				<code>
+					&lt;random-image theme="food" /&gt;<br />
+					&lt;random-text min-words="3" max-words="15" /&gt;
+				</code>
 			</p>
 			<h3>
 				Browsers support
 			</h3>
 			<p>
-				FooHTML is experimental project, so keep in mind cross-browser compatibility issues.
+				FooHTML is an experimental project, so keep in mind cross-browser compatibility issues.<br />
 				It should works fine in Chrome, Firefox and Safari.
 			</p>
 		</section>
-		
-		<section id="examples">
-		
-			<h2>Custom button</h2>
-			
-			<h3>&lt;simple-button&gt;</h3>
+		<section>
+			<h2>&lt;simple-button&gt;</h2>
 			<p>
-				Lets demontrate, what possibilities FooHTML gives, by creating a very simple button, which will change it's appear after clicking on it.
+				Lets demontrate, what possibilities FooHTML gives, by creating a very simple button, which will change it's appear after clicking on it. That's it, nothing else.
 			</p>
-			
-			<simple-button>Click me!</simple-button>
-			
+			<simple-button>Click me</simple-button>
+			<p>
+				Below you can check, how it is done. HTML is now enriched with this new tag, which can be use anywhere across web project.
+			</p>
 			<snippet-explorer title="simple-button"></snippet-explorer>
-			
-			<h3>Custom checkbox</h3>
-			<p>Now, lets demonstrate some basic logic built-in to custom element by imitating checkbox functionality. Actually, by differences in CSS only, we will have 3 types of checkboxes:</p>
-			
-			<x-checkbox class="checkbox-simple" data-checked="true"></x-checkbox> apples
-			<x-checkbox id="oranges" class="checkbox-simple"></x-checkbox> oranges
-			<x-checkbox id="lemons" class="checkbox-simple" data-disabled="true"></x-checkbox> lemons
-			<x-checkbox class="checkbox-simple" data-checked="true" data-disabled="true"></x-checkbox> kiwi
+		</section>
+		<section>
+			<h2>&lt;toggler-switch&gt;</h2>
+			<p>With FooHTML it's very easy to create toggler switch, with customized look.</p>
+			<toggler-switch checked></toggler-switch> apples
 			<br />
-			<x-checkbox class="checkbox-square" data-checked="true"></x-checkbox> elephants
-			<x-checkbox class="checkbox-square"></x-checkbox> lions
-			<x-checkbox id="zebras" class="checkbox-square" data-disabled="true"></x-checkbox> zebras
-			<x-checkbox class="checkbox-square" data-checked="true" data-disabled="true"></x-checkbox> antelopes
+			<toggler-switch></toggler-switch> oranges
 			<br />
-			<x-checkbox class="checkbox-switch" data-checked="true"></x-checkbox> lorem
-			<x-checkbox class="checkbox-switch"></x-checkbox> ipsum
-			<x-checkbox class="checkbox-switch" data-disabled="true"></x-checkbox> dolor
-			<x-checkbox class="checkbox-switch" data-checked="true" data-disabled="true"></x-checkbox> sit
-			
-			<p>We can manipulate this "checkboxes" from vanilla JS, using it's custom element "API":</p>
-			
-			<button onclick="document.getElementById('oranges').check();">Check oranges</button>
-			<button onclick="document.getElementById('oranges').uncheck();">Uncheck oranges</button>
-			<button onclick="document.getElementById('oranges').toggle();">Toggle oranges value</button>
-			<button onclick="alert(document.getElementById('oranges').checked);">Alert oranges value</button>
+			<toggler-switch></toggler-switch> lemons
 			<br />
-			<button onclick="document.getElementById('lemons').enable();">Enable lemons</button>
-			<button onclick="document.getElementById('lemons').disable();">Disable lemons</button>
-			<button onclick="document.getElementById('lemons').toggleAbility();">Toggle lemons ability</button>
-			<button onclick="alert(document.getElementById('lemons').disabled);">Alert lemons disability</button>
+			<toggler-switch disabled></toggler-switch> kiwi
 			<br />
-			<button onclick="resetCheckboxes();">Reset all</button>
-			
-			<x-tabs>
-				<x-tab-title>JavaScript</x-tab-title>
-				<x-tab-title>HTML</x-tab-title>
-				<x-tab-title>CSS</x-tab-title>
-				<x-tab-content>FooHTML.register('x-checkbox', {
-	onCreate: function(){
-		this.checked = this.getAttribute('data-checked') || false;
-		this.disabled = this.getAttribute('data-disabled') || false;
-		this.defaults = {
-			checked: this.checked,
-			disabled: this.disabled
-		}
-	},
-	events: {
-		click: function(){
-			if(this.disabled) return;
-			this.setValue(!this.checked);
-		}
-	},
-	methods: {
-		check: function(){
-			this.setValue(true);
-		},
-		uncheck: function(){
-			this.setValue(false);
-		},
-		toggle: function(){
-			this.setValue(!this.checked);
-		},
-		setValue: function(value){
-			this.checked = value;
-			this.setAttribute('data-checked', this.checked);
-		},
-		enable: function(){
-			this.setAbility(true);
-		},
-		disable: function(){
-			this.setAbility(false);
-		},
-		toggleAbility: function(){
-			this.setAbility(this.disabled);
-		},
-		setAbility: function(enabled){
-			this.disabled = !enabled;
-			this.setAttribute('data-disabled', this.disabled);
-		},
-		reset: function(){
-			this.setValue(this.defaults.checked);
-			this.setAbility(!this.defaults.disabled);
-		}
-	}
-});
-
-function resetCheckboxes(){
-	var checkboxes = document.getElementsByTagName('x-checkbox'),
-		i = checkboxes.length;
-	while(i--){
-		checkboxes[i].reset();
-	}
-}</x-tab-content>
-				<x-tab-content><x-checkbox class="checkbox-simple" data-checked="true"></x-checkbox> apples
-<x-checkbox id="oranges" class="checkbox-simple"></x-checkbox> oranges
-<x-checkbox id="lemons" class="checkbox-simple" data-disabled="true"></x-checkbox> lemons
-<x-checkbox class="checkbox-simple" data-checked="true" data-disabled="true"></x-checkbox> kiwi
-
-<x-checkbox class="checkbox-square" data-checked="true"></x-checkbox> elephants
-<x-checkbox class="checkbox-square"></x-checkbox> lions
-<x-checkbox id="zebras" class="checkbox-square" data-disabled="true"></x-checkbox> zebras
-<x-checkbox class="checkbox-square" data-checked="true" data-disabled="true"></x-checkbox> antelopes
-
-<x-checkbox class="checkbox-switch" data-checked="true"></x-checkbox> lorem
-<x-checkbox class="checkbox-switch"></x-checkbox> ipsum
-<x-checkbox class="checkbox-switch" data-disabled="true"></x-checkbox> dolor
-<x-checkbox class="checkbox-switch" data-checked="true" data-disabled="true"></x-checkbox> sit
-
-<button onclick="document.getElementById('oranges').check();">Check oranges</button>
-<button onclick="document.getElementById('oranges').uncheck();">Uncheck oranges</button>
-<button onclick="document.getElementById('oranges').toggle();">Toggle oranges value</button>
-<button onclick="alert(document.getElementById('oranges').checked);">Alert oranges value</button>
-<button onclick="document.getElementById('lemons').enable();">Enable lemons</button>
-<button onclick="document.getElementById('lemons').disable();">Disable lemons</button>
-<button onclick="document.getElementById('lemons').toggleAbility();">Toggle lemons ability</button>
-<button onclick="alert(document.getElementById('lemons').disabled);">Alert lemons disability</button>
-<button onclick="resetCheckboxes();">Reset all</button></x-tab-content>
-				<x-tab-content>.x-checkbox {
-	display: inline-block;
-	vertical-align: middle;
-	cursor: pointer;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
-	position: relative;
-	margin: 10px 10px 10px 30px;
-}
-.x-checkbox[data-disabled=true] {
-	cursor: default;
-}
-.checkbox-simple {
-	width: 25px;
-	height: 25px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background-color: #ddd;
-	background: -webkit-linear-gradient(#eee, #bbb);
-	background: -o-linear-gradient(#eee, #bbb);
-	background: -moz-linear-gradient(#eee, #bbb);
-	background: linear-gradient(#eee, #bbb);
-}
-.checkbox-simple:hover {
-	border: 1px solid #0094FF;
-}
-.checkbox-simple[data-checked=true]::before {
-	content: 'L';
-	font-family: arial;
-	font-weight: bold;
-	font-size: 25px;
-	color: #000;
-	position: absolute;
-	top: -5px;
-	left: 5px;
-	-moz-transform: scaleX(-1) rotate(-45deg);
-	-webkit-transform: scaleX(-1) rotate(-45deg);
-	-o-transform: scaleX(-1) rotate(-45deg);
-	transform: scaleX(-1) rotate(-45deg);
-}
-.checkbox-simple[data-checked=true][data-disabled=true]::before {
-	color: #555;
-}
-.checkbox-simple[data-disabled=true] {
-	border: 1px solid #666;
-	background-color: #888;
-	background: -webkit-linear-gradient(#888, #bbb);
-	background: -o-linear-gradient(#eee, #bbb);
-	background: -moz-linear-gradient(#eee, #bbb);
-	background: linear-gradient(#888, #666);
-}
-.checkbox-square {
-	width: 30px;
-	height: 30px;
-	background-color: #ddd;
-	background: -webkit-linear-gradient(#eee, #bbb);
-	background: -o-linear-gradient(#eee, #bbb);
-	background: -moz-linear-gradient(#eee, #bbb);
-	background: linear-gradient(#eee, #bbb);
-}
-.checkbox-square::before {
-	display: block;
-	content: '';
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	top: 5px;
-	left: 5px;
-	background-color: #333;
-	background: -webkit-linear-gradient(#222, #444);
-	background: -o-linear-gradient(#222, #444);
-	background: -moz-linear-gradient(#222, #444);
-	background: linear-gradient(#222, #444);
-}
-.checkbox-square::after {
-	display: block;
-	content: '';
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	top: 7px;
-	left: 7px;
-	background-color: #00FF21;
-	background: -webkit-linear-gradient(#B6FF00, #007821);
-	background: -o-linear-gradient(#B6FF00, #007821);
-	background: -moz-linear-gradient(#B6FF00, #007821);
-	background: linear-gradient(#B6FF00, #007821);
-	opacity: 0;
-}
-.checkbox-square:hover::after {
-	opacity: 0.4;
-}
-.checkbox-square[data-disabled=true]:hover::after {
-	opacity: 0;
-}
-.checkbox-square[data-checked=true]::after {
-	opacity: 1;
-}
-.checkbox-square[data-disabled=true] {
-	background-color: #666;
-	background: -webkit-linear-gradient(#444, #666);
-	background: -o-linear-gradient(#444, #666);
-	background: -moz-linear-gradient(#444, #666);
-	background: linear-gradient(#444, #666);
-}
-.checkbox-square[data-disabled=true][data-checked=true]::after {
-	opacity: 0.4;
-}
-.checkbox-switch {
-	width: 70px;
-	height: 30px;
-	background-color: gray;
-	background: -webkit-linear-gradient(135deg, #333, #222);
-	background: -o-linear-gradient(135deg, #333, #222);
-	background: -moz-linear-gradient(135deg, #333, #222);
-	background: linear-gradient(135deg, #333, #222);
-	border-radius: 15px;
-	box-shadow: inset 1px 1px 1px rgba(0,0,0,.9);
-}
-.checkbox-switch::before {
-	display: block;
-	content: '';
-	width: 44px;
-	height: 3px;
-	background-color: rgba(0,0,0,.9);
-	position: absolute;
-	top: 14px;
-	left: 13px;
-	border-radius: 2px;
-	box-shadow: 1px 1px 0 rgba(255,255,255,.3);
-}
-.checkbox-switch::after {
-	display: block;
-	content: '';
-	width: 22px;
-	height: 22px;
-	border: 2px solid #eee;
-	border-radius: 11px;
-	box-sizing: border-box;
-	box-shadow: 1px 1px 0 rgba(0,0,0,.8);
-	background-color: #B60000;
-	background: -webkit-linear-gradient(135deg, #B60000, #690000);
-	background: -o-linear-gradient(135deg, #B60000, #690000);
-	background: -moz-linear-gradient(135deg, #B60000, #690000);
-	background: linear-gradient(135deg, #B60000, #690000);
-	position: absolute;
-	left: 5px;
-	top: 5px;
-	transition: all 250ms ease-in-out;
-}
-.checkbox-switch[data-checked=true]::after {
-	left: 43px;
-	background-color: #00FF21;
-	background: -webkit-linear-gradient(135deg, #B6FF00, #007821);
-	background: -o-linear-gradient(135deg, #B6FF00, #007821);
-	background: -moz-linear-gradient(135deg, #B6FF00, #007821);
-	background: linear-gradient(135deg, #B6FF00, #007821);
-}
-.checkbox-switch[data-disabled=true]::after {
-	border: 2px solid #444;
-	background-color: #3a0000;
-	background: linear-gradient(135deg, #3a0000, #230000);
-}
-.checkbox-switch[data-disabled=true][data-checked=true]::after {
-	background-color: #003321;
-	background: linear-gradient(135deg, #003321, #001C21);
-}</x-tab-content>
-			</x-tabs>
-			
-			<h3>Custom combobox</h3>
-			<p>In this example we will create custom combobox, showing also the use of external event (click outside combobox closes it, when opened).</p>
-			<x-combobox>
-				<x-option>Please select country</x-option>
-				<x-option value="be">Belgium</x-option>
-				<x-option value="de">Germany</x-option>
-				<x-option value="fr">France</x-option>
-				<x-option value="es">Spain</x-option>
-				<x-option value="us">United States of America</x-option>
-			</x-combobox>
-			
-			<x-combobox class="long-answers">
-				<x-option>Please select your favourite<br />"Lorem ipsum" sentence</x-option>
-				<x-option value="be">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</x-option>
-				<x-option value="de">Praesent luctus porttitor velit, non dapibus sapien eleifend eu.</x-option>
-				<x-option value="fr">Donec consectetur enim at enim laoreet, quis iaculis nulla molestie.</x-option>
-				<x-option value="es">Ut dignissim mi eros, id vehicula turpis hendrerit vel.</x-option>
-				<x-option value="us">Integer vehicula purus a neque elementum pulvinar.</x-option>
-			</x-combobox>
-			
-			<h3>Lazy loading</h3>
-			<p>Lets create custom element with lazy loading build-in. Lazy loading will be triggered with parametrized threashold, depending on element's scrollTop and window's scroll-y position.</p>
-			
-			<x-lazyloading>
-				Lazy loads, when top edge is displayed (default behavior).
-			</x-lazyloading>
-			<x-lazyloading data-lazy-threshold="80">
-				Lazy loads, when top edge + 80px is displayed
-			</x-lazyloading>
-			<x-lazyloading data-lazy-threshold="50%">
-				Lazy loads, when 50% of the element's height is displayed.
-			</x-lazyloading>
-			<x-lazyloading data-lazy-threshold="100%">
-				Lazy loads, when 100% of the element's height is displayed.
-			</x-lazyloading>
-			<x-lazyloading data-lazy-threshold="W50%">
-				Lazy loads, when top edge meets 50% of the screen height.
-			</x-lazyloading>
-			<x-lazyloading data-lazy-threshold="0.5">
-				Lazy loads, when element is at the middle of the screen height.
-			</x-lazyloading>
-			
-			<h3>Inheritance</h3>
-			<p>Now, we will create image custom tag with lazy laoding by inheritance from previous example.</p>
-			
-			<x-image data-lazy-threshold="100%" data-src="i/gallery-1.jpg"></x-image>
-			<x-image data-lazy-threshold="100%" data-src="i/gallery-2.jpg"></x-image>
-			<x-image data-lazy-threshold="100%" data-src="i/gallery-3.jpg"></x-image>
-			<x-image data-lazy-threshold="100%" data-src="i/gallery-4.jpg"></x-image>
-			<x-image data-lazy-threshold="100%" data-src="i/gallery-5.jpg"></x-image>
-			<x-image data-lazy-threshold="100%" data-src="i/gallery-6.jpg"></x-image>
-			
-			<h3>Video Player</h3>
-			<p>Lets demonstrate more advanced example of inheritance, by creating custom video players (based on HTML5 video tag).</p>
-			<p>We start with player having basic functionality (title of the movie, play/pause and progress bar) but in addition, when a player is started, other already started player pauses.</p>
-			
-			<x-player data-config="[{'title': 'Lorem ipsum', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
-			<x-player data-config="[{'title': 'Dolor sit', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
-			<x-player data-config="[{'title': 'Amet consectetur', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
-			<x-player data-config="[{'title': 'Adipiscing elit', 'videos': {'video/mp4': 'i/mov_bbb.mp4', 'video/ogg': 'i/mov_bbb.ogg'}}]"></x-player>
-			
-			<p>Now, lets extend this player and add some more advanced functionality:</p>
+			<toggler-switch checked disabled></toggler-switch> pears
+			<snippet-explorer title="toggler-switch"></snippet-explorer>
+		</section>
+		<section id="animated-select">
+			<h2>&lt;animated-select&gt;</h3>
+			<p>Here we have a select field, with nice animated effect on open/close.</p>
+			<animated-select>
+			  <animated-select-option>Select country</animated-select-option>
+			  <animated-select-option value="be">Belgium</animated-select-option>
+			  <animated-select-option value="de">Germany</animated-select-option>
+			  <animated-select-option value="fr">France</animated-select-option>
+			  <animated-select-option value="es">Spain</animated-select-option>
+			  <animated-select-option value="us">United States of America</animated-select-option>
+			</animated-select>
+			<animated-select class="long-answers">
+			  <animated-select-option>Select your favourite<br />"Lorem ipsum" sentence</animated-select-option>
+			  <animated-select-option value="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</animated-select-option>
+			  <animated-select-option value="2">Praesent luctus porttitor velit, non dapibus sapien eleifend eu.</animated-select-option>
+			  <animated-select-option value="3">Donec consectetur enim at enim laoreet, quis iaculis nulla molestie.</animated-select-option>
+			  <animated-select-option value="4">Ut dignissim mi eros, id vehicula turpis hendrerit vel.</animated-select-option>
+			  <animated-select-option value="5">Integer vehicula purus a neque elementum pulvinar.</animated-select-option>
+			</animated-select>
+			<snippet-explorer title="animated-select"></snippet-explorer>
+		</section>
+		<section>
+			<h2>&lt;lazy-loading&gt;</h3>
+			<p>
+				Here we have elements, which have build-in lazy-loading concept.
+				It means, they are triggered to change their appearance, when element is first displayed within visible area of the page.
+				Optionally, we can set different offset thresholds.
+				<br />
+				<br />
+				Scroll down slowly, and see, when and why elements are triggered.
+				<br />
+				<br />
+			</p>
+			<lazy-loading>
+			  Lazy loading, when top edge is displayed (default behavior).
+			</lazy-loading>
+			<lazy-loading data-threshold="50%">
+			  Lazy loading, with 50% of the element's height as top offset.
+			</lazy-loading>
+			<lazy-loading data-threshold="400">
+			  Lazy loading, with 400px top offset
+			</lazy-loading>
+			<lazy-loading data-threshold="W50%">
+			  Lazy loading, when top edge meets 50% of the screen height.
+			</lazy-loading>
+			<lazy-loading data-threshold="100%">
+			  Lazy loading, when 100% of the element's height is displayed.
+			</lazy-loading>
+			<lazy-loading data-threshold="0.5">
+			  Lazy loading, when element is at the middle of the screen height.
+			</lazy-loading>
+			<snippet-explorer title="lazy-loading"></snippet-explorer>
+		</section>
+		<section>
+			<h2>&lt;lazy-image&gt;</h2>
+			<p>
+				Here we will use inheritance from &lt;lazy-loading&gt; to apply this concept for images.
+			</p>
+			<lazy-image data-threshold="100%" src="img/gallery-1.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-2.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-3.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-4.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-5.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-6.jpg"></lazy-image>
+			<snippet-explorer title="lazy-image"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;video-player&gt;</h3>
+			<p>Lets demonstrate more advanced example of inheritance, by creating custom video player, based on HTML5 video tag.</p>
+			<p>We start player having functionalities:</p>
 			<ul>
-				<li>covers for movies</li>
-				<li>tab on the right allowing to switch between movies</li>
-				<li>subtitles displayed during the "Lorem ipsum" movie</li>
-				<li>adverts displayed during playing the "Dolor sit" movie</li>
-				<li>tiles of all related movies displayed after current movie is finished</li>
+				<li>title of the movie</li>
+				<li>play/pause and progress bar</li>
+				<li>when a player is started, other already running player pauses</li>
 			</ul>
-			
-			<x-player-advanced data-config="[
+			<video-player data-config="[{'title': 'Lorem ipsum', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<video-player data-config="[{'title': 'Dolor sit', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<video-player data-config="[{'title': 'Amet consectetur', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<video-player data-config="[{'title': 'Adipiscing elit', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<snippet-explorer title="video-player"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;video-widget&gt;</h3>
+			<p>Now, lets extend video-player and add some more advanced functionalities:</p>
+			<ul>
+				<li>player widget allows to switch between related movies via toggable tab on the right side</li>
+				<li>subtitles are displayed during the "Lorem ipsum" movie</li>
+				<li>adverts are displayed during playing the "Dolor sit" movie</li>
+				<li>related movies are displayed, after movie finished</li>
+			</ul>
+			<video-widget data-config="[
 				{
-					'title': 'Lorem ipsum', 
-					'cover': 'i/cover-1.jpg',
+					'title': 'Lorem ipsum',
+					'cover': 'img/cover-1.jpg',
 					'videos': {
-						'video/mp4': 'i/mov_bbb.mp4',
-						'video/ogg': 'i/mov_bbb.ogg'
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
 					},
 					'subtitles': {
 						'1': 'Donec lectus orci, varius nec rhoncus ac, <br />commodo id leo.',
@@ -427,88 +190,95 @@ function resetCheckboxes(){
 						'5.5': 'Cras elementum sagittis velit <br />in blandit. Nulla facilisi.',
 						'7.5': 'Morbi odio risus, posuere quis <br />sapien ut, mattis pretium tellus.'
 					}
-				}, 
+				},
 				{
-					'title': 'Dolor sit', 
-					'cover': 'i/cover-2.jpg',
+					'title': 'Dolor sit',
+					'cover': 'img/cover-2.jpg',
 					'videos': {
-						'video/mp4': 'i/mov_bbb.mp4',
-						'video/ogg': 'i/mov_bbb.ogg'
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
 					},
 					'subtitles': {
-						'2': 'i/banner-1.jpg',
+						'2': 'img/banner-1.jpg',
 						'4': '',
-						'6': 'i/banner-2.jpg'
+						'6': 'img/banner-2.jpg'
 					}
-				}, 
+				},
 				{
-					'title': 'Amet consectetur', 
-					'cover': 'i/cover-3.jpg',
+					'title': 'Amet consectetur',
+					'cover': 'img/cover-3.jpg',
 					'videos': {
-						'video/mp4': 'i/mov_bbb.mp4',
-						'video/ogg': 'i/mov_bbb.ogg'
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
 					}
-				}, 
+				},
 				{
-					'title': 'Adipiscing elit', 
-					'cover': 'i/cover-4.jpg', 
+					'title': 'Adipiscing elit',
+					'cover': 'img/cover-4.jpg',
 					'videos': {
-						'video/mp4': 'i/mov_bbb.mp4',
-						'video/ogg': 'i/mov_bbb.ogg'
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
 					}
-				}, 
+				},
 				{
-					'title': 'Sed ut dictum', 
-					'cover': 'i/cover-5.jpg',
+					'title': 'Sed ut dictum',
+					'cover': 'img/cover-5.jpg',
 					'videos': {
-						'video/mp4': 'i/mov_bbb.mp4',
-						'video/ogg': 'i/mov_bbb.ogg'
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
 					}
 				}
-			]"></x-player-advanced>
-			
+			]"></video-widget>
 			<p>There is of cource space for improvements and adding new functionalities, like volume control, showing progress time and video duration, closable adverts, etc.</p>
-			
-			<h3>Hexagonal images</h3>
-			<p>Custom elements don't have to be used as components serving a business logic - they can also be used for creating interesting layout, like converting normal image into hexagonal shape.</p>
-			
-			<img class="hex-img" src="i/hex-img.jpg" />
-			<x-hex-img class="hex-img" data-src="i/hex-img.jpg"></x-hex-img>
-			
-			<p>And we can use it to create hexagonal mosaics.</p>
-			
-			<x-hex-mosaic id="mosaic-1" data-config="{
+			<snippet-explorer title="video-widget"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;hexagonal-image&gt;</h3>
+			<p>
+				Custom elements don't have to be used as components serving a business logic.
+				<br />
+				They can also be used for creating interesting layout, like displaying ordinary image with hexagonal shape.
+			</p>
+			<img class="hex-img" src="img/hex-img.jpg" />
+			&nbsp;&nbsp;
+			→
+			&nbsp;&nbsp;&nbsp;
+			<hexagonal-image src="img/hex-img.jpg"></hexagonal-image>
+			<snippet-explorer title="hexagonal-image"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;hexagonal-gallery&gt;</h3>
+			<p>On top of hexagonal-image, we can build a mosaic gallery.</p>
+			<hexagonal-gallery data-config="{
 				'size': [3, 3],
-				'margin': 4,
-				'tiles': ['i/mosaic-1.jpg', 'i/mosaic-2.jpg', 'i/mosaic-3.jpg', 'i/mosaic-4.jpg', 'i/mosaic-5.jpg', 'i/mosaic-6.jpg', 'i/mosaic-7.jpg', 'i/mosaic-8.jpg', 'i/mosaic-9.jpg', 'i/mosaic-10.jpg', 'i/mosaic-11.jpg', 'i/mosaic-12.jpg', 'i/mosaic-13.jpg', 'i/mosaic-14.jpg', 'i/mosaic-15.jpg', 'i/mosaic-16.jpg', 'i/mosaic-17.jpg', 'i/mosaic-18.jpg']
-			}"></x-hex-mosaic>
-			
-			<x-hex-mosaic id="mosaic-2" data-config="{
+				'glue': {
+					'size': 4
+				},
+				'tiles': ['img/mosaic-1.jpg', 'img/mosaic-2.jpg', 'img/mosaic-3.jpg', 'img/mosaic-4.jpg', 'img/mosaic-5.jpg', 'img/mosaic-6.jpg', 'img/mosaic-7.jpg', 'img/mosaic-8.jpg', 'img/mosaic-9.jpg', 'img/mosaic-10.jpg', 'img/mosaic-11.jpg', 'img/mosaic-12.jpg', 'img/mosaic-13.jpg', 'img/mosaic-14.jpg', 'img/mosaic-15.jpg', 'img/mosaic-16.jpg', 'img/mosaic-17.jpg', 'img/mosaic-18.jpg']
+			}"></hexagonal-gallery>
+			<hexagonal-gallery data-config="{
 				'size': [4, 2],
-				'margin': 10,
-				'tiles': ['i/mosaic-1.jpg', 'i/mosaic-2.jpg', 'i/mosaic-3.jpg', 'i/mosaic-4.jpg', 'i/mosaic-5.jpg', 'i/mosaic-6.jpg', 'i/mosaic-7.jpg', 'i/mosaic-8.jpg', 'i/mosaic-9.jpg', 'i/mosaic-10.jpg', 'i/mosaic-11.jpg', 'i/mosaic-12.jpg', 'i/mosaic-13.jpg', 'i/mosaic-14.jpg', 'i/mosaic-15.jpg', 'i/mosaic-16.jpg', 'i/mosaic-17.jpg', 'i/mosaic-18.jpg']
-			}"></x-hex-mosaic>
-			
-			<h3>Slider</h3>
-			
-			<x-slider data-config="[{'title': 'Lorem ipsum dolor sit amet', 'img': 'i/slider-1.jpg'}, {'title': '', 'img': 'i/slider-2.jpg'}, {'title': '', 'img': 'i/slider-3.jpg'}, {'title': '', 'img': 'i/slider-4.jpg'}, {'title': '', 'img': 'i/slider-5.jpg'}]"></x-slider>
-			
-			<h3>Image processing</h3>
-			
-			<x-img-posterized data-config="['i/processing-1.jpg', 'i/processing-3.jpg', 'i/processing-4.jpg', 'i/processing-2.jpg', 'i/processing-5.jpg', 'i/processing-6.jpg']"></x-img-posterized>
-			
+				'glue': {
+					'size': 10,
+					'color': '#FFF'
+				},
+				'tiles': ['img/mosaic-1.jpg', 'img/mosaic-2.jpg', 'img/mosaic-3.jpg', 'img/mosaic-4.jpg', 'img/mosaic-5.jpg', 'img/mosaic-6.jpg', 'img/mosaic-7.jpg', 'img/mosaic-8.jpg', 'img/mosaic-9.jpg', 'img/mosaic-10.jpg', 'img/mosaic-11.jpg', 'img/mosaic-12.jpg', 'img/mosaic-13.jpg', 'img/mosaic-14.jpg', 'img/mosaic-15.jpg', 'img/mosaic-16.jpg', 'img/mosaic-17.jpg', 'img/mosaic-18.jpg']
+			}"></hexagonal-gallery>
+			<snippet-explorer title="hexagonal-gallery"></snippet-explorer>
 		</section>
-		<section id="documentation">
-			<h2>Documentation</h2>
-		</section>
-		<section id="licence">
-			<h2>Licence</h2>
-		</section>
-		<section id="download">
-			<h2>Download</h2>
-		</section>
-		<section id="contact">
-			<h2>Contact</h2>
+		<section>
+			<h3>&lt;wave-slider&gt;</h3>
+			<p>
+				Finally, we have an image slider with interesting transition effect.
+				<br />
+				<br />
+				When you click, images are replaced by circle waves. One wave starts on position of your click, and the second in random place.
+				<br />
+				<br />
+				Try clicking quickly in different spots.
+			</p>
+			<wave-slider data-config="[{'title': 'Lorem ipsum dolor sit amet', 'img': 'img/slider-1.jpg'}, {'title': '', 'img': 'img/slider-2.jpg'}, {'title': '', 'img': 'img/slider-3.jpg'}, {'title': '', 'img': 'img/slider-4.jpg'}, {'title': '', 'img': 'img/slider-5.jpg'}]"></wave-slider>
+			<snippet-explorer title="wave-slider"></snippet-explorer>
 		</section>
 	</div>
 </body>

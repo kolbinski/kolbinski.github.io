@@ -1,0 +1,32 @@
+.toggler-switch {
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	position: relative;
+	margin: 10px;
+	width: 70px;
+	height: 30px;
+	border-radius: 20px;
+	border: 2px solid #00b8ff;
+}
+.toggler-switch::after {
+	display: block;
+	content: '';
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	background-color: #FFF;
+	border: 2px solid #00b8ff;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	transition: all 250ms ease-in-out;
+}
+.toggler-switch[checked]::after {
+	left: 43px;
+	background-color: #00b8ff;
+}
+.toggler-switch[disabled] {
+	filter: grayscale(1);
+}

@@ -1,0 +1,18 @@
+<lazy-loading>
+  Lazy loading, when top edge is displayed (default behavior).
+</lazy-loading>
+<lazy-loading data-threshold="50%">
+  Lazy loading, with 50% of the element's height as top offset.
+</lazy-loading>
+<lazy-loading data-threshold="400">
+  Lazy loading, with 400px top offset
+</lazy-loading>
+<lazy-loading data-threshold="W50%">
+  Lazy loading, when top edge meets 50% of the screen height.
+</lazy-loading>
+<lazy-loading data-threshold="100%">
+  Lazy loading, when 100% of the element's height is displayed.
+</lazy-loading>
+<lazy-loading data-threshold="0.5">
+  Lazy loading, when element is at the middle of the screen height.
+</lazy-loading>

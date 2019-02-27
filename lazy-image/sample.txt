@@ -1,0 +1,6 @@
+<lazy-image data-threshold="100%" src="img/gallery-1.jpg"></lazy-image>
+<lazy-image data-threshold="100%" src="img/gallery-2.jpg"></lazy-image>
+<lazy-image data-threshold="100%" src="img/gallery-3.jpg"></lazy-image>
+<lazy-image data-threshold="100%" src="img/gallery-4.jpg"></lazy-image>
+<lazy-image data-threshold="100%" src="img/gallery-5.jpg"></lazy-image>
+<lazy-image data-threshold="100%" src="img/gallery-6.jpg"></lazy-image>

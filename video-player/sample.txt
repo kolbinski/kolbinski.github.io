@@ -1,0 +1,43 @@
+<video-player
+  data-config="[{
+    'title': 'Lorem ipsum',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  }]"
+>
+</video-player>
+
+<video-player
+  data-config="[{
+    'title': 'Dolor sit',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  }]"
+>
+</video-player>
+
+<video-player
+  data-config="[{
+    'title': 'Amet consectetur',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  }]"
+>
+</video-player>
+
+<video-player
+  data-config="[{
+    'title': 'Adipiscing elit',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  }]"
+>
+</video-player>

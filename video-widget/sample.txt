@@ -1,0 +1,53 @@
+<video-widget data-config="[
+  {
+    'title': 'Lorem ipsum',
+    'cover': 'img/cover-1.jpg',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    },
+    'subtitles': {
+      '1': 'Donec lectus orci, varius nec rhoncus ac, <br />commodo id leo.',
+      '3': 'Donec varius, dui id porta sollicitudin, risus ex <br />sodales risus, quis semper velit ante sed orci.',
+      '5.5': 'Cras elementum sagittis velit <br />in blandit. Nulla facilisi.',
+      '7.5': 'Morbi odio risus, posuere quis <br />sapien ut, mattis pretium tellus.'
+    }
+  },
+  {
+    'title': 'Dolor sit',
+    'cover': 'img/cover-2.jpg',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    },
+    'subtitles': {
+      '2': 'img/banner-1.jpg',
+      '4': '',
+      '6': 'img/banner-2.jpg'
+    }
+  },
+  {
+    'title': 'Amet consectetur',
+    'cover': 'img/cover-3.jpg',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  },
+  {
+    'title': 'Adipiscing elit',
+    'cover': 'img/cover-4.jpg',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  },
+  {
+    'title': 'Sed ut dictum',
+    'cover': 'img/cover-5.jpg',
+    'videos': {
+      'video/mp4': 'vid/movie.mp4',
+      'video/ogg': 'vid/movie.ogg'
+    }
+  }
+]"></video-widget>

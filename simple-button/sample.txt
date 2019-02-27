@@ -1,1 +1,1 @@
-<simple-button> Click me! </simple-button>
+<simple-button> Click me </simple-button>

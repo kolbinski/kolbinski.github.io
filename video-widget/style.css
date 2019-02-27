@@ -1,0 +1,129 @@
+.video-widget {
+	width: 700px;
+	height: 390px;
+	overflow: hidden;
+}
+.video-widget .play {
+	left: 300px;
+	bottom: 145px;
+}
+.video-widget .cover {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+.video-widget .tabs {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateX(100%) translateY(-50%);
+	background-color: #00b8ff;
+	cursor: pointer;
+	width: 220px;
+	transition: all 250ms ease-in-out;
+	z-index: 2;
+}
+.video-widget .tabs::before {
+	display: block;
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: #00b8ff;
+	left: -15px;
+	top: calc(50% - 15px);
+	border-radius: 50%;
+}
+.video-widget .tabs::after {
+	display: block;
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-top: 4px solid #ddd;
+	border-left: 4px solid #ddd;
+	left: -4px;
+	top: calc(50% - 7px);
+	transform: rotate(-45deg);
+}
+.video-widget .tabs:hover {
+	right: 0;
+	transform: translateX(0%) translateY(-50%);
+}
+.video-widget .tabs div {
+	font-size: 15px;
+	font-weight: 900;
+	margin: 15px;
+	padding-bottom: 15px;
+	color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+.video-widget .tabs div:last-child {
+	padding: 0;
+	border-bottom: none;
+}
+.video-widget .tabs div:hover {
+	color: #FFC900;
+}
+.video-widget .covers {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	display: none;
+}
+.video-widget .covers div {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	padding: 10px;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+	color: #eee;
+	text-shadow: 1px 1px 1px #00b8ff, -1px 1px 1px #00b8ff, 1px -1px 1px #00b8ff, -1px -1px 1px #00b8ff;
+}
+.video-widget .covers div:nth-child(2) {
+	left: 50%;
+}
+.video-widget .covers div:nth-child(3) {
+	top: 50%;
+}
+.video-widget .covers div:nth-child(4) {
+	left: 50%;
+	top: 50%;
+}
+.video-widget .subtitles {
+	display: block;
+	position: absolute;
+	right: 60px;
+	left: 60px;
+	bottom: 20px;
+	text-align: center;
+	z-index: 4;
+	color: #fff;
+	font-weight: 900;
+	font-size: 25px;
+	text-shadow: 2px 2px 1px #000;
+}
+.video-widget .subtitles[data-banner=true] {
+	height: 150px;
+}
+.video-widget .subtitles[data-banner=true]::before {
+	display: block;
+	content: 'CLOSE X';
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #00b8ff;
+	color: #fff;
+	text-shadow: none;
+	font-size: 15px;
+	padding: 3px 10px;
+	transform: translateY(-100%);
+}

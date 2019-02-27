@@ -1,0 +1,107 @@
+.animated-select {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	width: 350px;
+	height: 50px;
+}
+.animated-select::before {
+	display: block;
+	content: '';
+	width: 10px;
+	height: 10px;
+	border-top: 3px solid #00b8ff;
+	border-right: 3px solid #00b8ff;
+	position: absolute;
+	right: 30px;
+	top: 19px;
+	transform: rotate(135deg);
+	transform-origin: 50% 50%;
+	z-index: 10;
+	transition: all 250ms ease-in-out;
+}
+.animated-select.opened .animated-select-option {
+	transform: scale(1);
+}
+.animated-select.opened::before {
+	transform: rotate(315deg);
+	top: 24px;
+}
+.animated-select .animated-select-option {
+	background-color: #f1fbff;
+	color: #333;
+	padding: 13px 20px;
+	position: absolute;
+	width: 300px;
+	left: 0;
+	top: 0;
+	border: 3px solid #00b8ff;
+	transform: scale(0.5);
+	transition-property: top, transform;
+	transition-duration: 500ms;
+	transition-timing-function: ease-in-out;
+}
+.animated-select.long-answers, .animated-select.long-answers .animated-select-option {
+	width: 230px;
+}
+.animated-select.long-answers::before {
+	right: -40px;
+}
+.animated-select.long-answers .animated-select-option {
+	font-size: 15px;
+	padding: 7px 40px 7px 20px;
+}
+.animated-select .animated-select-option[selected=true] {
+	color: #00b8ff;
+}
+.animated-select .animated-select-option:first-child {
+	display: block;
+	transform: scale(1);
+}
+.animated-select .animated-select-option:hover:not(:first-child) {
+	color: #fff;
+	background-color: #00b8ff;
+}
+.animated-select .animated-select-option:nth-child(1) {
+	z-index: 6;
+}
+.animated-select .animated-select-option:nth-child(2) {
+	z-index: 5;
+	transition-delay: 1ms;
+}
+.animated-select .animated-select-option:nth-child(3) {
+	z-index: 4;
+	transition-delay: 200ms;
+}
+.animated-select .animated-select-option:nth-child(4) {
+	z-index: 3;
+	transition-delay: 300ms;
+}
+.animated-select .animated-select-option:nth-child(5) {
+	z-index: 2;
+	transition-delay: 400ms;
+}
+.animated-select .animated-select-option:nth-child(6) {
+	z-index: 1;
+	transition-delay: 500ms;
+}
+.animated-select.opened .animated-select-option:nth-child(2) {
+	top: 50px;
+	transition-delay: 500ms;
+}
+.animated-select.opened .animated-select-option:nth-child(3) {
+	top: 100px;
+	transition-delay: 400ms;
+}
+.animated-select.opened .animated-select-option:nth-child(4) {
+	top: 150px;
+	transition-delay: 300ms;
+}
+.animated-select.opened .animated-select-option:nth-child(5) {
+	top: 200px;
+	transition-delay: 200ms;
+}
+.animated-select.opened .animated-select-option:nth-child(6) {
+	top: 250px;
+	transition-delay: 1ms;
+}

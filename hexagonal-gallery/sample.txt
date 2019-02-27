@@ -1,0 +1,60 @@
+<hexagonal-gallery
+  data-config="{
+    'size': [3, 3],
+    'glue': {
+      size: 4
+    },
+    'tiles': [
+      'img/mosaic-1.jpg',
+      'img/mosaic-2.jpg',
+      'img/mosaic-3.jpg',
+      'img/mosaic-4.jpg',
+      'img/mosaic-5.jpg',
+      'img/mosaic-6.jpg',
+      'img/mosaic-7.jpg',
+      'img/mosaic-8.jpg',
+      'img/mosaic-9.jpg',
+      'img/mosaic-10.jpg',
+      'img/mosaic-11.jpg',
+      'img/mosaic-12.jpg',
+      'img/mosaic-13.jpg',
+      'img/mosaic-14.jpg',
+      'img/mosaic-15.jpg',
+      'img/mosaic-16.jpg',
+      'img/mosaic-17.jpg',
+      'img/mosaic-18.jpg'
+    ]
+  }"
+>
+</hexagonal-gallery>
+
+<hexagonal-gallery
+  data-config="{
+    'size': [4, 2],
+    'glue': {
+      size: 10,
+      color: '#fff',
+    },
+    'tiles': [
+      'img/mosaic-1.jpg',
+      'img/mosaic-2.jpg',
+      'img/mosaic-3.jpg',
+      'img/mosaic-4.jpg',
+      'img/mosaic-5.jpg',
+      'img/mosaic-6.jpg',
+      'img/mosaic-7.jpg',
+      'img/mosaic-8.jpg',
+      'img/mosaic-9.jpg',
+      'img/mosaic-10.jpg',
+      'img/mosaic-11.jpg',
+      'img/mosaic-12.jpg',
+      'img/mosaic-13.jpg',
+      'img/mosaic-14.jpg',
+      'img/mosaic-15.jpg',
+      'img/mosaic-16.jpg',
+      'img/mosaic-17.jpg',
+      'img/mosaic-18.jpg'
+    ]
+  }"
+>
+</hexagonal-gallery>

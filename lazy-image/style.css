@@ -1,0 +1,52 @@
+.lazy-image {
+	width: 250px;
+	height: 250px;
+	border: none;
+	padding: 0;
+	position: relative;
+}
+.lazy-image::before {
+	display: block;
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #ddd;
+	opacity: 1;
+	transition: opacity 2000ms ease-in-out;
+}
+.lazy-image::after{
+	display: block;
+	content: '';
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #333;
+	position: absolute;
+	left: 115px;
+	top: 70px;
+	transform: rotate(0deg);
+	transform-origin: 10px 60px;
+	animation-name: lazy-loader;
+	animation-duration: 1500ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	opacity: 1;
+	transition: opacity 250ms ease-in-out;
+}
+.lazy-image.loaded {
+	transition: none;
+}
+.lazy-image.loaded::before, .lazy-image.loaded::after{
+	opacity: 0;
+}
+@keyframes lazy-loader {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

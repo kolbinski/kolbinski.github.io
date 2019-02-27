@@ -1,0 +1,5 @@
+<toggler-switch checked></toggler-switch> apples
+<toggler-switch></toggler-switch> oranges
+<toggler-switch></toggler-switch> lemons
+<toggler-switch></toggler-switch> kiwi
+<toggler-switch checked disabled></toggler-switch> pears

@@ -1,0 +1,29 @@
+<animated-select>
+  <animated-select-option value="--"> Select country </animated-select-option>
+  <animated-select-option value="be"> Belgium </animated-select-option>
+  <animated-select-option value="de"> Germany </animated-select-option>
+  <animated-select-option value="fr"> France </animated-select-option>
+  <animated-select-option value="es"> Spain </animated-select-option>
+  <animated-select-option value="us"> United States of America </animated-select-option>
+</animated-select>
+
+<animated-select class="long-answers">
+  <animated-select-option>
+    Select your favourite "Lorem ipsum" sentence
+  </animated-select-option>
+  <animated-select-option value="1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </animated-select-option>
+  <animated-select-option value="2">
+    Praesent luctus porttitor velit, non dapibus sapien eleifend eu.
+  </animated-select-option>
+  <animated-select-option value="3">
+    Donec consectetur enim at enim laoreet, quis iaculis nulla molestie.
+  </animated-select-option>
+  <animated-select-option value="4">
+    Ut dignissim mi eros, id vehicula turpis hendrerit vel.
+  </animated-select-option>
+  <animated-select-option value="5">
+    Integer vehicula purus a neque elementum pulvinar.
+  </animated-select-option>
+</animated-select>

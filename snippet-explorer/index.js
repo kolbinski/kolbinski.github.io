@@ -7,6 +7,7 @@ FooHTML
 			}
 		}
 	})
+	.register('snippet-explorer-content')
 	.register('snippet-explorer', {
 		onCreate: function () {
 			var title = this.getAttribute('title');
@@ -16,12 +17,13 @@ FooHTML
 				tab.innerHTML = tabTitles[idx];
 				this.appendChild(tab);
 			}
-			var contents = ['snippet.txt', 'index.js', 'style.css'];
+			var contents = ['sample.txt', 'index.js', 'style.css'];
 			for (var idx = 0; idx < 3; idx++) {
 				var content = document.createElement('snippet-explorer-content');
 				var iframe = document.createElement('iframe');
-				iframe.src = 'https://kolbinski.github.io/' + title + '/' + contents[idx];
-				this.appendChild(iframe);
+				iframe.src = './' + title + '/' + contents[idx];
+				content.appendChild(iframe);
+				this.appendChild(content);
 			}
 			var titleTags = this.getElementsByTagName('snippet-explorer-title'),
 				contentTags = this.getElementsByTagName('snippet-explorer-content'),

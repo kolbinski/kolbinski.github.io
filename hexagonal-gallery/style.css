@@ -1,0 +1,12 @@
+.hexagonal-gallery {
+	display: inline-block;
+	width: calc(50% - 5px);
+	vertical-align: middle;
+}
+.hexagonal-gallery .hexagonal-image {
+	opacity: 1;
+	cursor: pointer;
+}
+.hexagonal-gallery .hexagonal-image:hover {
+	opacity: 0.5;
+}
