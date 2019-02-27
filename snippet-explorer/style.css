@@ -1,0 +1,39 @@
+.snippet-explorer-tabs {
+	position: relative;
+	display: block;
+	margin: 20px 0;
+}
+.snippet-explorer .snippet-explorer-content {
+	display: none;
+	border: 3px solid #333;
+	background-color: #555;
+	color: #DDD;
+	padding: 15px;
+	font-family: monospace;
+	font-size: 14px;
+	white-space: pre;
+	overflow: auto;
+}
+.snippet-explorer-title {
+	display: inline-block;
+	border: 3px solid #333;
+	background-color: #333;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-weight: 900;
+	color: #DDD;
+}
+.snippet-explorer-title.active {
+	background-color: #555;
+	position: relative;
+}
+.snippet-explorer-title.active::after{
+	display: block;
+	content: '';
+	height: 6px;
+	background-color: #555;
+	position: absolute;
+	width: 100%;
+	bottom: -6px;
+	left: 0;
+}
