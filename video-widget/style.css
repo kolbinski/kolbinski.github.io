@@ -1,6 +1,5 @@
 .video-widget {
-	width: 700px;
-	height: 390px;
+	width: 100%;
 	overflow: hidden;
 }
 .video-widget .play {

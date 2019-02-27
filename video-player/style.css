@@ -1,6 +1,5 @@
 .video-player {
-	width: 350px;
-	height: 195px;
+	width: calc(50% - 30px);
 	display: inline-block;
 	background-color: #333;
 	margin: 0 20px 20px 0;
