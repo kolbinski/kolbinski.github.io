@@ -16,11 +16,15 @@ section {
 }
 header {
 	padding: 40px 0;
+	font-weight: 900;
+	text-align: center;
+}
+header img {
+	width: auto;
+	height: 150px;
 }
 header big, header small {
-	font-weight: 900;
 	display: block;
-	text-align: center;
 }
 header big {
 	font-size: 140px;
@@ -45,4 +49,9 @@ h3 {
 	width: 350px;
 	margin-right: 10px;
 	vertical-align: middle;
+}
+code {
+	margin: 0 0 30px 30px;
+	font-size: 1rem;
+	display: block;
 }

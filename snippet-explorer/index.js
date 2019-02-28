@@ -7,19 +7,19 @@ FooHTML
 			}
 		}
 	})
-	.register('snippet-explorer-content')
+	.register('snippet-explorer-content', {})
 	.register('snippet-explorer', {
 		onCreate: function () {
 			var title = this.getAttribute('title');
 			var tabTitles = ['HTML', 'JavaScript', 'CSS'];
 			for (var idx = 0; idx < 3; idx++) {
-				var tab = document.createElement('snippet-explorer-title');
+				var tab = this.api.createElement('snippet-explorer-title', false);
 				tab.innerHTML = tabTitles[idx];
 				this.appendChild(tab);
 			}
 			var contents = ['sample.txt', 'index.js', 'style.css'];
 			for (var idx = 0; idx < 3; idx++) {
-				var content = document.createElement('snippet-explorer-content');
+				var content = this.api.createElement('snippet-explorer-content', false);
 				var iframe = document.createElement('iframe');
 				iframe.src = './' + title + '/' + contents[idx];
 				content.appendChild(iframe);

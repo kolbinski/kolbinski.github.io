@@ -1,99 +1,97 @@
-var FooHTML = FooHTML || (function(window, document){
+var FooHTML = FooHTML || (function (window, document) {
 	var registerTags = {}, proto, i, j, k, isBrowserSupport = document.registerElement, isOnCreatedToBeCalled = true,
-		addEvent = function(obj, event, func){
-			if(obj.addEventListener){
+		addEvent = function (obj, event, func) {
+			if (obj.addEventListener) {
 				obj.addEventListener(event, func);
-			}else{
+			} else {
 				obj.attachEvent('on'+event, func);
 			}
 		},
-		removeEvent = function(obj, event, func){
-			if(obj.removeEventListener){
+		removeEvent = function (obj, event, func) {
+			if (obj.removeEventListener) {
 				obj.removeEventListener(event, func);
-			}else{
+			} else {
 				obj.detachEvent('on'+event, func);
 			}
 		},
-		createElement = function(tag, _isOnCreatedToBeCalled){
+		createElement = function (tag, _isOnCreatedToBeCalled) {
 			if(_isOnCreatedToBeCalled === undefined) _isOnCreatedToBeCalled = true;
 			isOnCreatedToBeCalled = _isOnCreatedToBeCalled;
 			var element = document.createElement(tag);
-			if(!isBrowserSupport){
+			if (!isBrowserSupport) {
 				createdCallbackFallback(element, tag, false);
 			}
 			return element;
 		},
-		callOnCreate = function(_this){
+		callOnCreate = function (_this) {
 			registerTags[_this.tagName.toLowerCase()].onCreate.call(_this);
 		},
-		createdCallbackFallback = function(_this, tag, registerTargetEvents){
+		createdCallbackFallback = function (_this, tag, registerTargetEvents) {
 			_this.api = api;
 			_this.data = registerTags[tag].data || {};
-			if(registerTags[tag].extends){
+			if (registerTags[tag].extends) {
 				_this.super = {};
 				j = registerTags[registerTags[tag].extends].methods;
-				if(j){
-					for(k in j){
+				if (j) {
+					for (k in j) {
 						_this.super[k] = j[k].bind(_this);
 					}
 				}
 				createdCallbackFallback(_this, registerTags[tag].extends, false);
-				for(j in registerTags[registerTags[tag].extends].data){
+				for (j in registerTags[registerTags[tag].extends].data) {
 					_this.data[j] = registerTags[registerTags[tag].extends].data[j];
 				}
 			}
-			_this.className += ' ' + tag;
-			if(registerTags[tag].methods){
-				for(j in registerTags[tag].methods){
+			_this.classList.add(tag);
+			if (registerTags[tag].methods) {
+				for (j in registerTags[tag].methods) {
 					_this[j] = registerTags[tag].methods[j];
 				}
 			}
-			//console.log(tag, isOnCreatedToBeCalled);
-			if(registerTags[tag].onCreate && isOnCreatedToBeCalled){
-				//setTimeout(function(){registerTags[tag].onCreate.call(_this)}, 100); //TODO: avoid setTimeout
+			if (registerTags[tag].onCreate && isOnCreatedToBeCalled) {
 				registerTags[tag].onCreate.call(_this);
 				isOnCreatedToBeCalled = true;
 			}
-			if(registerTags[tag].events){
-				for(j in registerTags[tag].events){
+			if (registerTags[tag].events) {
+				for (j in registerTags[tag].events) {
 					addEvent(_this, j, registerTags[tag].events[j]);
 				}
 			}
-			if(registerTargetEvents && registerTags[tag].externalEvents){
+			if (registerTargetEvents && registerTags[tag].externalEvents) {
 				j = registerTags[tag].externalEvents.length;
-				while(j--){
-					for(k in registerTags[tag].externalEvents[j].events){
+				while (j--) {
+					for (k in registerTags[tag].externalEvents[j].events) {
 						addEvent(registerTags[tag].externalEvents[j].target, k, registerTags[tag].externalEvents[j].events[k].func);
 					}
 				}
 			}
 		},
-		createdCallback = function(){
+		createdCallback = function () {
 			createdCallbackFallback(this, this.tagName.toLowerCase(), true);
 		},
-		onload = function(){
-			for(tag in registerTags){
-				if(isBrowserSupport){
+		onload = function () {
+			for (tag in registerTags) {
+				if (isBrowserSupport) {
 					proto = Object.create(HTMLElement.prototype);
 					proto.createdCallback = createdCallback;
 					document.registerElement(tag, {prototype: proto});
-				}else{
+				} else {
 					tags = document.getElementsByTagName(tag);
 					i = tags.length;
-					while(i--){
+					while (i--) {
 						createdCallbackFallback(tags[i], tag, true);
 					}
 				}
 				tags = document.getElementsByTagName(tag);
 				i = tags.length;
-				while(i--){
+				while (i--) {
 					tags[i].initialized = true;
 				}
-				if(registerTags[tag].externalEvents){
+				if (registerTags[tag].externalEvents) {
 					j = registerTags[tag].externalEvents.length;
-					while(j--){
-						for(k in registerTags[tag].externalEvents[j].events){
-							if(registerTags[tag].externalEvents[j].events[k].trigger){
+					while (j--) {
+						for (k in registerTags[tag].externalEvents[j].events) {
+							if (registerTags[tag].externalEvents[j].events[k].trigger) {
 								registerTags[tag].externalEvents[j].events[k].func();
 							}
 						}
