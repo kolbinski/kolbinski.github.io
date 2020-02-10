@@ -1,1 +1,286 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><link href="/static/css/2.96479aa2.chunk.css" rel="stylesheet"><link href="/static/css/main.a91e5db2.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(a){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],l=0,i=[];l<n.length;l++)t=n[l],Object.prototype.hasOwnProperty.call(p,t)&&p[t]&&i.push(p[t][0]),p[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(a[r]=o[r]);for(s&&s(e);i.length;)i.shift()();return c.push.apply(c,u||[]),f()}function f(){for(var e,r=0;r<c.length;r++){for(var t=c[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==p[u]&&(n=!1)}n&&(c.splice(r--,1),e=l(l.s=t[0]))}return e}var t={},p={1:0},c=[];function l(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return a[e].call(r.exports,r,r.exports,l),r.l=!0,r.exports}l.m=a,l.c=t,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(r,e){if(1&e&&(r=l(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)l.d(t,n,function(e){return r[e]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var r=this.webpackJsonptravelio=this.webpackJsonptravelio||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var o=0;o<r.length;o++)e(r[o]);var s=n;f()}([])</script><script src="/static/js/2.a34996b4.chunk.js"></script><script src="/static/js/main.abddc25f.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FooHTML</title>
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<link href="snippet-explorer/style.css" type="text/css" rel="stylesheet">
+	<link href="simple-button/style.css" type="text/css" rel="stylesheet">
+	<link href="toggler-switch/style.css" type="text/css" rel="stylesheet">
+	<link href="animated-select/style.css" type="text/css" rel="stylesheet">
+	<link href="lazy-image/style.css" type="text/css" rel="stylesheet">
+	<link href="lazy-loading/style.css" type="text/css" rel="stylesheet">
+	<link href="video-player/style.css" type="text/css" rel="stylesheet">
+	<link href="video-widget/style.css" type="text/css" rel="stylesheet">
+	<link href="hexagonal-image/style.css" type="text/css" rel="stylesheet">
+	<link href="hexagonal-gallery/style.css" type="text/css" rel="stylesheet">
+	<link href="wave-slider/style.css" type="text/css" rel="stylesheet">
+	<script src="foo-html.lib.js"></script>
+	<script src="script.js"></script>
+	<script src="snippet-explorer/index.js"></script>
+	<script src="simple-button/index.js"></script>
+	<script src="toggler-switch/index.js"></script>
+	<script src="animated-select/index.js"></script>
+	<script src="lazy-loading/index.js"></script>
+	<script src="lazy-image/index.js"></script>
+	<script src="video-player/index.js"></script>
+	<script src="video-widget/index.js"></script>
+	<script src="hexagonal-image/index.js"></script>
+	<script src="hexagonal-gallery/index.js"></script>
+	<script src="wave-slider/index.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<header>
+			<img src="img/logo.png" />
+			<big>FooHTML</big>
+			<small>Yet Another Custom Elements Library</small>
+		</header>
+		<section>
+			<h2>
+				What is FooHTML?
+			</h2>
+			<p>
+				FooHTML is a helper library dedicated for Custom Elements,
+				it allows you to implement and use any new html tag with specific tailor made functionality.
+				Your html source code becomes shorter, easier and more semantic.
+				<br />
+				<br />
+				Consider examples in your html code:
+				<br />
+				<br />
+				<code>
+					&lt;random-image theme="food" /&gt;<br />
+					&lt;random-text min-words="3" max-words="15" /&gt;
+				</code>
+			</p>
+			<h3>
+				Browsers support
+			</h3>
+			<p>
+				FooHTML is an experimental project, so keep in mind cross-browser compatibility issues.<br />
+				It should works fine in Chrome, Firefox and Safari.
+			</p>
+		</section>
+		<section>
+			<h2>&lt;simple-button&gt;</h2>
+			<p>
+				Lets demontrate, what possibilities FooHTML gives, by creating a very simple button, which will change it's appear after clicking on it. That's it, nothing else.
+			</p>
+			<simple-button>Click me</simple-button>
+			<p>
+				Below you can check, how it is done. HTML is now enriched with this new tag, which can be use anywhere across web project.
+			</p>
+			<snippet-explorer title="simple-button"></snippet-explorer>
+		</section>
+		<section>
+			<h2>&lt;toggler-switch&gt;</h2>
+			<p>With FooHTML it's very easy to create toggler switch, with customized look.</p>
+			<toggler-switch checked></toggler-switch> apples
+			<br />
+			<toggler-switch></toggler-switch> oranges
+			<br />
+			<toggler-switch></toggler-switch> lemons
+			<br />
+			<toggler-switch disabled></toggler-switch> kiwi
+			<br />
+			<toggler-switch checked disabled></toggler-switch> pears
+			<snippet-explorer title="toggler-switch"></snippet-explorer>
+		</section>
+		<section id="animated-select">
+			<h2>&lt;animated-select&gt;</h3>
+			<p>Here we have a select field, with nice animated effect on open/close.</p>
+			<animated-select>
+			  <animated-select-option>Select country</animated-select-option>
+			  <animated-select-option value="be">Belgium</animated-select-option>
+			  <animated-select-option value="de">Germany</animated-select-option>
+			  <animated-select-option value="fr">France</animated-select-option>
+			  <animated-select-option value="es">Spain</animated-select-option>
+			  <animated-select-option value="us">United States of America</animated-select-option>
+			</animated-select>
+			<animated-select class="long-answers">
+			  <animated-select-option>Select your favourite<br />"Lorem ipsum" sentence</animated-select-option>
+			  <animated-select-option value="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</animated-select-option>
+			  <animated-select-option value="2">Praesent luctus porttitor velit, non dapibus sapien eleifend eu.</animated-select-option>
+			  <animated-select-option value="3">Donec consectetur enim at enim laoreet, quis iaculis nulla molestie.</animated-select-option>
+			  <animated-select-option value="4">Ut dignissim mi eros, id vehicula turpis hendrerit vel.</animated-select-option>
+			  <animated-select-option value="5">Integer vehicula purus a neque elementum pulvinar.</animated-select-option>
+			</animated-select>
+			<snippet-explorer title="animated-select"></snippet-explorer>
+		</section>
+		<section>
+			<h2>&lt;lazy-loading&gt;</h3>
+			<p>
+				Here we have elements, which have build-in lazy-loading concept.
+				It means, they are triggered to change their appearance, when element is first displayed within visible area of the page.
+				Optionally, we can set different offset thresholds.
+				<br />
+				<br />
+				Scroll down slowly, and see, when and why elements are triggered.
+				<br />
+				<br />
+			</p>
+			<lazy-loading>
+			  Lazy loading, when top edge is displayed (default behavior).
+			</lazy-loading>
+			<lazy-loading data-threshold="50%">
+			  Lazy loading, with 50% of the element's height as top offset.
+			</lazy-loading>
+			<lazy-loading data-threshold="400">
+			  Lazy loading, with 400px top offset
+			</lazy-loading>
+			<lazy-loading data-threshold="W50%">
+			  Lazy loading, when top edge meets 50% of the screen height.
+			</lazy-loading>
+			<lazy-loading data-threshold="100%">
+			  Lazy loading, when 100% of the element's height is displayed.
+			</lazy-loading>
+			<lazy-loading data-threshold="0.5">
+			  Lazy loading, when element is at the middle of the screen height.
+			</lazy-loading>
+			<snippet-explorer title="lazy-loading"></snippet-explorer>
+		</section>
+		<section>
+			<h2>&lt;lazy-image&gt;</h2>
+			<p>
+				Here we will use inheritance from &lt;lazy-loading&gt; to apply this concept for images.
+			</p>
+			<lazy-image data-threshold="100%" src="img/gallery-1.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-2.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-3.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-4.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-5.jpg"></lazy-image>
+			<lazy-image data-threshold="100%" src="img/gallery-6.jpg"></lazy-image>
+			<snippet-explorer title="lazy-image"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;video-player&gt;</h3>
+			<p>Lets demonstrate more advanced example of inheritance, by creating custom video player, based on HTML5 video tag.</p>
+			<p>We start player having functionalities:</p>
+			<ul>
+				<li>title of the movie</li>
+				<li>play/pause and progress bar</li>
+				<li>when a player is started, other already running player pauses</li>
+			</ul>
+			<video-player data-config="[{'title': 'Lorem ipsum', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<video-player data-config="[{'title': 'Dolor sit', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<video-player data-config="[{'title': 'Amet consectetur', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<video-player data-config="[{'title': 'Adipiscing elit', 'videos': {'video/mp4': 'vid/movie.mp4', 'video/ogg': 'vid/movie.ogg'}}]"></video-player>
+			<snippet-explorer title="video-player"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;video-widget&gt;</h3>
+			<p>Now, lets extend video-player and add some more advanced functionalities:</p>
+			<ul>
+				<li>player widget allows to switch between related movies via toggable tab on the right side</li>
+				<li>subtitles are displayed during the "Lorem ipsum" movie</li>
+				<li>adverts are displayed during playing the "Dolor sit" movie</li>
+				<li>related movies are displayed, after movie finished</li>
+			</ul>
+			<video-widget data-config="[
+				{
+					'title': 'Lorem ipsum',
+					'cover': 'img/cover-1.jpg',
+					'videos': {
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
+					},
+					'subtitles': {
+						'1': 'Donec lectus orci, varius nec rhoncus ac, <br />commodo id leo.',
+						'3': 'Donec varius, dui id porta sollicitudin, risus ex <br />sodales risus, quis semper velit ante sed orci.',
+						'5.5': 'Cras elementum sagittis velit <br />in blandit. Nulla facilisi.',
+						'7.5': 'Morbi odio risus, posuere quis <br />sapien ut, mattis pretium tellus.'
+					}
+				},
+				{
+					'title': 'Dolor sit',
+					'cover': 'img/cover-2.jpg',
+					'videos': {
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
+					},
+					'subtitles': {
+						'2': 'img/banner-1.jpg',
+						'4': '',
+						'6': 'img/banner-2.jpg'
+					}
+				},
+				{
+					'title': 'Amet consectetur',
+					'cover': 'img/cover-3.jpg',
+					'videos': {
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
+					}
+				},
+				{
+					'title': 'Adipiscing elit',
+					'cover': 'img/cover-4.jpg',
+					'videos': {
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
+					}
+				},
+				{
+					'title': 'Sed ut dictum',
+					'cover': 'img/cover-5.jpg',
+					'videos': {
+						'video/mp4': 'vid/movie.mp4',
+						'video/ogg': 'vid/movie.ogg'
+					}
+				}
+			]"></video-widget>
+			<p>There is of cource space for improvements and adding new functionalities, like volume control, showing progress time and video duration, closable adverts, etc.</p>
+			<snippet-explorer title="video-widget"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;hexagonal-image&gt;</h3>
+			<p>
+				Custom elements don't have to be used as components serving a business logic.
+				<br />
+				They can also be used for creating interesting layout, like displaying ordinary image with hexagonal shape.
+			</p>
+			<img class="hex-img" src="img/hex-img.jpg" />
+			&nbsp;&nbsp;
+			→
+			&nbsp;&nbsp;&nbsp;
+			<hexagonal-image src="img/hex-img.jpg"></hexagonal-image>
+			<snippet-explorer title="hexagonal-image"></snippet-explorer>
+		</section>
+		<section>
+			<h3>&lt;hexagonal-gallery&gt;</h3>
+			<p>On top of hexagonal-image, we can build a mosaic gallery.</p>
+			<hexagonal-gallery data-config="{
+				'size': [3, 3],
+				'glue': {
+					'size': 4
+				},
+				'tiles': ['img/mosaic-1.jpg', 'img/mosaic-2.jpg', 'img/mosaic-3.jpg', 'img/mosaic-4.jpg', 'img/mosaic-5.jpg', 'img/mosaic-6.jpg', 'img/mosaic-7.jpg', 'img/mosaic-8.jpg', 'img/mosaic-9.jpg', 'img/mosaic-10.jpg', 'img/mosaic-11.jpg', 'img/mosaic-12.jpg', 'img/mosaic-13.jpg', 'img/mosaic-14.jpg', 'img/mosaic-15.jpg', 'img/mosaic-16.jpg', 'img/mosaic-17.jpg', 'img/mosaic-18.jpg']
+			}"></hexagonal-gallery>
+			<hexagonal-gallery data-config="{
+				'size': [4, 2],
+				'glue': {
+					'size': 10,
+					'color': '#FFF'
+				},
+				'tiles': ['img/mosaic-1.jpg', 'img/mosaic-2.jpg', 'img/mosaic-3.jpg', 'img/mosaic-4.jpg', 'img/mosaic-5.jpg', 'img/mosaic-6.jpg', 'img/mosaic-7.jpg', 'img/mosaic-8.jpg', 'img/mosaic-9.jpg', 'img/mosaic-10.jpg', 'img/mosaic-11.jpg', 'img/mosaic-12.jpg', 'img/mosaic-13.jpg', 'img/mosaic-14.jpg', 'img/mosaic-15.jpg', 'img/mosaic-16.jpg', 'img/mosaic-17.jpg', 'img/mosaic-18.jpg']
+			}"></hexagonal-gallery>
+			<snippet-explorer title="hexagonal-gallery"></snippet-explorer>
+		</section>
+		<section id="wave-slider">
+			<h3>&lt;wave-slider&gt;</h3>
+			<p>
+				Finally, we have an image slider with interesting transition effect.
+				<br />
+				<br />
+				When you click, images are replaced by circle waves. One wave starts on position of your click, and the second in random place.
+				<br />
+				<br />
+				Try clicking quickly in different spots.
+			</p>
+			<wave-slider data-config="[{'title': 'Lorem ipsum dolor sit amet', 'img': 'img/slider-1.jpg'}, {'title': '', 'img': 'img/slider-2.jpg'}, {'title': '', 'img': 'img/slider-3.jpg'}, {'title': '', 'img': 'img/slider-4.jpg'}, {'title': '', 'img': 'img/slider-5.jpg'}]"></wave-slider>
+			<snippet-explorer title="wave-slider"></snippet-explorer>
+		</section>
+	</div>
+</body>
+</html>
